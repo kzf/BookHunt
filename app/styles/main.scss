@@ -1,0 +1,122 @@
+$icon-font-path: '../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/';
+
+// bower:scss
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+$brown: #A87328;
+$darkblue: #0C347D;
+$umber: #54290C;
+$springer: #EDED80;
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #AAACB5;
+}
+
+.left-inner-addon {
+    position: relative;
+}
+.left-inner-addon input {
+    padding-left: 34px;    
+}
+.left-inner-addon i {
+    position: absolute;
+    padding: 10px 12px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.ui-region {
+  margin: 25px 0px;
+}
+
+.bookshelf {
+  width: 100%;
+  height: 100%;
+  min-height: 690px;
+  margin: 0 auto;
+  border: 10px $brown solid;
+  overflow: hidden;
+  background-image: linear-gradient(darken($brown, 32%), darken($brown, 30%) 220px, 
+    lighten($brown, 4%) 220px, lighten($brown, 4%) 222px,
+    $brown 222px, $brown 228px,
+  darken($brown, 4%) 228px, darken($brown, 4%) 230px);
+  background-size: 10px 230px;
+  box-shadow: 0px 1000px 0px 400px #7A7668;
+}
+
+.book {
+  height: 200px;
+  width: 40px;
+  float: left;
+  color: white;
+  font-size: 0.9em;
+  font-family: Verdana, sans-serif;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  transition: transform 0.4s ease;
+}
+
+.book-tilted {
+  float: left;
+  width: 74px;
+}
+
+.book-tilted > .book {
+  transform: translateY(-3px) translateX(15px) rotate(9deg) ;
+}
+
+.book:hover {
+  transform: scale(1.05);
+}
+
+.book-green {
+  background-color: darkgreen;
+  border-left: 2px solid lighten(darkgreen, 4%);
+  border-right: 2px solid darken(darkgreen, 4%);
+}
+
+.book-blue {
+  background-color: $darkblue;
+  border-left: 2px solid lighten($darkblue, 4%);
+  border-right: 2px solid darken($darkblue, 4%);
+}
+
+.book-umber {
+  background-color: $umber;
+  border-left: 2px solid lighten($umber, 4%);
+  border-right: 2px solid darken($umber, 4%);
+}
+
+.book-springer {
+  background-color: $springer;
+  border-left: 2px solid lighten($springer, 4%);
+  border-right: 2px solid darken($springer, 4%);
+  color: black;
+}
+
+.book h2 {
+  padding: 0;
+  font-size: 1em;
+  transform-origin: 0% 0%;
+  transform: rotate(0.25turn) translateY(-35px);
+  width: 170px;
+}
+
+.book h3 {
+  padding: 0;
+  font-size: 0.7em;
+  transform-origin: 0 0;
+  transform: rotate(0.25turn) translateY(-15px) translateX(-20px);
+  width: 150px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+
+  
+}
