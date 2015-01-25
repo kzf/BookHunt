@@ -47,22 +47,23 @@ body {
   darken($brown, 4%) 228px, darken($brown, 4%) 230px);
   background-size: 10px 230px;
   box-shadow: 0px 1000px 0px 400px #7A7668;
+  line-height: 230px;
 }
 
 .book {
   height: 200px;
   width: 40px;
-  float: left;
+  display: inline-block;
   color: white;
   font-size: 0.9em;
   font-family: Verdana, sans-serif;
-  margin-bottom: 10px;
-  margin-top: 20px;
   transition: transform 0.4s ease;
+  vertical-align: bottom;
+  margin-bottom: 10px;
 }
 
 .book-tilted {
-  float: left;
+  display: inline-block;
   width: 74px;
 }
 
@@ -71,48 +72,76 @@ body {
 }
 
 .book:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px);
+  cursor: pointer;
 }
 
-.book-green {
-  background-color: darkgreen;
-  border-left: 2px solid lighten(darkgreen, 4%);
-  border-right: 2px solid darken(darkgreen, 4%);
+$book-colors: #ad424a, #c9ae73, #b57d30, #4e6a8f, #a2b6b3, #71825e, #918c88, #ac6632, #8d1e31, #393f3f, #c89c77, #5a528f, #c2bb86, #e7dad0;
+$text-colors: #550f15, #ac6632, #e3e1d0, #070829, #4e6a8f, #1d2f15, #e7dad0, #c89038, #f9cd1b, #fff6eb, #444e42, #4a0d45, #5d6658, #8d1e31;
+
+@for $i from 1 through length($book-colors) {
+  .book-color-#{$i - 1} {
+    background-color: nth($book-colors, $i);
+    color: nth($text-colors, $i);
+    border-left: 2px solid darken(nth($book-colors, $i), 4%);
+    border-right: 2px solid lighten(nth($book-colors, $i), 4%);
+  }
 }
 
-.book-blue {
-  background-color: $darkblue;
-  border-left: 2px solid lighten($darkblue, 4%);
-  border-right: 2px solid darken($darkblue, 4%);
-}
+$book-heights: 200px, 196px, 192px, 188px, 184px, 180px;
 
-.book-umber {
-  background-color: $umber;
-  border-left: 2px solid lighten($umber, 4%);
-  border-right: 2px solid darken($umber, 4%);
-}
-
-.book-springer {
-  background-color: $springer;
-  border-left: 2px solid lighten($springer, 4%);
-  border-right: 2px solid darken($springer, 4%);
-  color: black;
+@for $i from 1 through length($book-heights) {
+  .book-height-#{$i - 1} {
+    height: nth($book-heights, $i);
+  }
 }
 
 .book h2 {
+  margin: 0;
   padding: 0;
-  font-size: 1em;
+  text-align: center;
   transform-origin: 0% 0%;
   transform: rotate(0.25turn) translateY(-35px);
-  width: 170px;
+  width: 180px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 14px;
+  font-weight: bold;
+  overflow: hidden;
 }
 
-.book h3 {
+.book h2.long-title {
+  font-size: 10px;
+}
+
+/*.book h3 {
   padding: 0;
   font-size: 0.7em;
   transform-origin: 0 0;
   transform: rotate(0.25turn) translateY(-15px) translateX(-20px);
   width: 150px;
+}*/
+
+.book-details {
+  & h1 {
+    margin: 0;
+  }
+  & ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 40px;
+  }
+  & li {
+    display: inline-block;
+    margin-left: 10px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    & a {
+      color: #333;
+    }
+  }
 }
 
 /* Responsive: Portrait tablets and up */
